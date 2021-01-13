@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Day2 {
+
     public static void main(String[] args) {
         List<String> lines = readInput("/Users/ewan/Documents/GitHub/advent_of_code/day2_input.txt");
         int valid = 0;
@@ -19,14 +20,9 @@ public class Day2 {
             int low = Integer.parseInt(split[0]);
             int high = Integer.parseInt(split[1]);
 
-            int count = 0;
-            for (char c : password.toCharArray()) {
-                if (c == character) {
-                    count++;
-                }
-            }
-
-            if (count >= low && count <= high) {
+            if (password.charAt(low-1) == character && password.charAt(high-1) != character) {
+                valid++;
+            } else if (password.charAt(high-1) == character && password.charAt(low-1) != character) {
                 valid++;
             }
         }
