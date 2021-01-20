@@ -11,7 +11,7 @@ public class Day3 {
         int column = 0;
         int trees = 0;
         for (String line : lines) {
-            if (line.charAt(column) == tree) {
+            if (line.charAt(column % line.length()) == tree) {
                 trees++;
             }
             column += 3;
